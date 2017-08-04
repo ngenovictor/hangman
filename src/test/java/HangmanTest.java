@@ -34,24 +34,31 @@ public class HangmanTest {
     @Test
     public void checkLetter_ReturnsAString_String(){
         Game newGame = new Game();
-        String myWord = "zebra";
+        newGame.mWord = "zebra";
         String myLetter = "z";
-        String checkedWord = newGame.checkLetter(myWord,myLetter);
+        String checkedWord = newGame.checkLetter(myLetter);
         assertEquals(true, checkedWord!=null);
     }
     @Test
     public void checkLetterReturnsSameSizeString_String(){
         Game newGame = new Game();
-        String myWord = "zebra";
+        newGame.mWord = "zebra";
         String myLetter = "z";
-        String checkedWord = newGame.checkLetter(myWord,myLetter);
-        assertEquals(myWord.length(), checkedWord.length());
+        String checkedWord = newGame.checkLetter(myLetter);
+        assertEquals(newGame.mWord.length(), checkedWord.length());
     }
     @Test
-    public void checkLetter_returnsStringWithDashesEqualToStringSize(){
+    public void checkLetter_returnsStringWithDashesEqualToStringSize_String(){
         Game newGame = new Game();
-        String myWord = "zebra";
-        String checkedWord = newGame.checkLetter(myWord,"");
+        newGame.mWord = "zebra";
+        String checkedWord = newGame.checkLetter("");
         assertEquals("_____",checkedWord);
+    }
+    @Test
+    public void checkLetter_returnsStringWithGuessedWordReplaced(){
+        Game newGame = new Game();
+        newGame.mWord = "zebra";
+        String checkedWord = newGame.checkLetter("z");
+        assertEquals("z____",checkedWord);
     }
 }
