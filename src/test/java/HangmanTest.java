@@ -55,10 +55,32 @@ public class HangmanTest {
         assertEquals("_____",checkedWord);
     }
     @Test
-    public void checkLetter_returnsStringWithGuessedWordReplaced(){
+    public void checkLetter_returnsStringWithGuessedWordReplaced_String(){
         Game newGame = new Game();
         newGame.mWord = "zebra";
         String checkedWord = newGame.checkLetter("z");
         assertEquals("z____",checkedWord);
+    }
+    @Test
+    public void checkLetter_returnsStringWithGuessedWordReplacedAndWithProgress_String(){
+        Game newGame = new Game();
+        newGame.mWord = "zebra";
+        newGame.mProgress = "_e___";
+        String checkedWord = newGame.checkLetter("z");
+        assertEquals("ze___",checkedWord);
+    }
+    @Test
+    public void checkLetter_returnsStringWithGuessedWordReplacedWithoutProgress_String(){
+        Game newGame = new Game();
+        newGame.mWord = "zebra";
+        String checkedWord = newGame.checkLetter("z");
+        assertEquals("z____",checkedWord);
+    }
+    @Test
+    public void checkLetter_returnsSimilarOutputForMissingLetter_String(){
+        Game newGame = new Game();
+        newGame.mWord = "zebra";
+        String checkedWord = newGame.checkLetter("c");
+        assertEquals("_____",checkedWord);
     }
 }
