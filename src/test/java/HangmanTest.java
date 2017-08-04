@@ -1,6 +1,9 @@
 import org.junit.Test;
 
-import static org.hamcrest.core.Is.is;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 /**
@@ -8,29 +11,29 @@ import static org.junit.Assert.*;
  */
 public class HangmanTest {
     @Test
-    public void computeChoices_atleastReturnsAString_String(){
+    public void computeChoices_atLeastReturnsAString_String(){
         //nameOfMethodWeAreTesting_descriptionOfBehavior_expectedReturnValue()
         //check if class Game exists
         Game testGame = new Game();
-        String[] myWord = {"zebra"};
+        List<String> myWord = Arrays.asList("zebra");
         String computerChoice = testGame.computeChoices(myWord);
         assertEquals(true, computerChoice instanceof String);
     }
     @Test
-    public void computeChoices_GivenArrayListReturnsContent_String(){
+    public void computeChoices_GivenOneArrayListReturnsContent_String(){
         Game newGame = new Game();
-        String[] myWord = {"zebra"};
+        List<String> myWord = Arrays.asList("zebra");
         String computedChoice= newGame.computeChoices(myWord);
         assertEquals("zebra", computedChoice);
-        assertEquals("zebra", computedChoice);
     }
-//    @Test
-//    public void computeChoices_Given(){
-//       Game newGame = new Game();
-//       String[] myWord = {"zebra", "cow"};
-//       String computedChoice = newGame.computeChoices(myWord);
-//       assertThat(computedChoice,is(equalTo("zebra") || equalTo("cow")));
-//    }
+    @Test
+    public void computeChoices_GivenLongStringArrayReturnsAnyOfTheWords_String(){
+       Game newGame = new Game();
+       List<String> myWords = Arrays.asList("zebra","cow");
+       String computedChoice = newGame.computeChoices(myWords);
+       assertEquals(true,myWords.contains(computedChoice));
+
+    }
 
 
 }
