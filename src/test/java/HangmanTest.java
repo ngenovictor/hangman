@@ -104,4 +104,11 @@ public class HangmanTest {
         String checkedWord = newGame.checkLetter("a");
         assertEquals("a__a_a_a__a",checkedWord);
     }
+    @Test
+    public void checkLetter_returnsPreviousOutputForEmptyGuess(){
+        Game newGame = new Game();
+        newGame.mWord = "abracadabra";
+        String checkedWord = newGame.checkLetter("");
+        assertEquals("___________",checkedWord);
+    }
 }
