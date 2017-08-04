@@ -32,6 +32,13 @@ public class HangmanTest {
         assertEquals(true,myWords.contains(computedChoice));
     }
     @Test
+    public void computeChoices_createsTheMProgress_Dashes_String(){
+        Game newGame = new Game();
+        List<String> myWords = Arrays.asList("zebra");
+        newGame.computeChoices(myWords);
+        assertEquals("_____",newGame.mProgress);
+    }
+    @Test
     public void checkLetter_ReturnsAString_String(){
         Game newGame = new Game();
         newGame.mWord = "zebra";

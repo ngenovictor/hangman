@@ -12,7 +12,15 @@ public class Game {
         //selects a random word from a given array
         Random newRandomGenerator = new Random();
         int wordIndex = newRandomGenerator.nextInt(setWords.size());
-        return setWords.get(wordIndex);
+        mWord = setWords.get(wordIndex);
+
+        String[] wordLetters = mWord.split("");
+        StringBuilder toSplit = new StringBuilder();
+        for(int j=0;j<wordLetters.length;j++){
+            toSplit.append("_");
+        }
+        mProgress = (toSplit.toString());
+        return mWord;
     }
     String checkLetter(String myGuess){
         //monitors progress and checks guess against the word in play
